@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Ruby.Compass</id>
+    <version>0.12.2.2</version>
+    <title>Ruby.Compass</title>
+    <authors>Christopher M. Eppstein</authors>
+    <owners>Christopher M. Eppstein</owners>
+    <projectUrl>http://compass-style.org/</projectUrl>
+    <iconUrl>http://webdevelopment-jogeleit.de/images/compass.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Compass is an open-source CSS Authoring Framework based on SASS.</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>ruby sass compass css</tags>
+    <references />
+  </metadata>
+</package>

@@ -63,16 +63,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddTask.html" />
     <Content Include="Content\foundation\app.css" />
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\normalize.css" />
-    <Content Include="index.html" />
     <Content Include="AddTask.aspx" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Index.aspx" />
+    <Content Include="ListAllTasks.aspx" />
     <Content Include="ListAllTasks.html" />
-    <Content Include="Login.html" />
-    <Content Include="MenuSnippet.html" />
+    <Content Include="MenuControl.ascx" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
     <Content Include="Scripts\angular-bootstrap.js" />
@@ -401,6 +400,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListAllTasks.aspx.cs">
+      <DependentUpon>ListAllTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListAllTasks.aspx.designer.cs">
+      <DependentUpon>ListAllTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuControl.ascx.cs">
+      <DependentUpon>MenuControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuControl.ascx.designer.cs">
+      <DependentUpon>MenuControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AddTask.aspx.cs">
       <DependentUpon>AddTask.aspx</DependentUpon>

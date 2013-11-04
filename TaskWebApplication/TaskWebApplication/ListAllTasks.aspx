@@ -1,49 +1,18 @@
-<!DOCTYPE html>
-<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListAllTasks.aspx.cs" Inherits="TaskWebApplication.ListAllTasks" %>
 
-<head>
+<%@ Register TagPrefix="uc" TagName="Menu"
+    Src="~/MenuControl.ascx" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
+<head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Foundation 4</title>
-
-
+    <title>Task Web Application - View All Tasks</title>
     <link rel="stylesheet" href="Content/foundation/foundation.css">
 </head>
 <body>
-
-    <nav class="top-bar">
-        <ul class="title-area">
-            <!-- Title Area -->
-            <li class="name">
-                <h1><a href="#">Task Management Web Application </a></h1>
-            </li>
-            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
-
-        <section class="top-bar-section">
-            <!-- Right Nav Section -->
-            <ul class="right">
-                <li class="divider"></li>
-                <li class="has-dropdown"><a href="#">Tasks</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Add Task</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Edit Tasks</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">View All Tasks</a></li>
-                    </ul>
-                </li>
-                <li class="divider"></li>
-                <li class="divider hide-for-small"></li>
-                <li class="has-dropdown"><a href="#">Login</a></li>
-                <li class="divider"></li>
-            </ul>
-        </section>
-    </nav>
+    <uc:Menu runat="server" ID="menu" />
     <div class="row">
         <table id="tasks" data-direction="@Model.direction" data-sort="@Model.sort">
             <thead>
@@ -124,51 +93,5 @@
             </tbody>
         </table>
     </div>
-    <script>
-        document.write('<script src=' +
-        ('__proto__' in {} ? 'Scripts/zepto' : 'Scripts/jquery') +
-        '.js><\/script>')
-  </script>
-
-    <script src="Scripts/foundation/foundation.js"></script>
-    <!--
-  
-  <script src="js/foundation/foundation.js"></script>
-  
-  <script src="js/foundation/foundation.alerts.js"></script>
-  
-  <script src="js/foundation/foundation.clearing.js"></script>
-  
-  <script src="js/foundation/foundation.cookie.js"></script>
-  
-  <script src="js/foundation/foundation.dropdown.js"></script>
-  
-  <script src="js/foundation/foundation.forms.js"></script>
-  
-  <script src="js/foundation/foundation.joyride.js"></script>
-  
-  <script src="js/foundation/foundation.magellan.js"></script>
-  
-  <script src="js/foundation/foundation.orbit.js"></script>
-  
-  <script src="js/foundation/foundation.reveal.js"></script>
-  
-  <script src="js/foundation/foundation.section.js"></script>
-  
-  <script src="js/foundation/foundation.tooltips.js"></script>
-  
-  <script src="js/foundation/foundation.topbar.js"></script>
-  
-  <script src="js/foundation/foundation.interchange.js"></script>
-  
-  <script src="js/foundation/foundation.placeholder.js"></script>
-  
-  <script src="js/foundation/foundation.abide.js"></script>
-  
-  -->
-
-    <script>
-        $(document).foundation();
-  </script>
 </body>
 </html>

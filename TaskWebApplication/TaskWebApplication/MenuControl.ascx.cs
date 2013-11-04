@@ -7,17 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace TaskWebApplication
 {
-    public partial class AddTask : System.Web.UI.Page
+    public partial class MenuControl : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void AddTask_Click(object sender, EventArgs e)
-        {
-            submit.Text = "Clicked!";
-            Response.Redirect("ListAllTasks.aspx");
         }
     }
 }

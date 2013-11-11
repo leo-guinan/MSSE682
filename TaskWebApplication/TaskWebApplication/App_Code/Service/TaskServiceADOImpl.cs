@@ -1,67 +1,103 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using TaskApp.Domain;
 
 namespace TaskWebApplication.Service
 {
-    /// <summary>
-    /// This is a service for supporting the Task Objects. It deals with adding, modifying, and removing tasks, as well 
-    /// as getting tasks from storage and returning sorted lists.
-    /// </summary>
-    public interface ITaskService : IService
+    public class TaskServiceADOImpl : ServiceADOImpl, ITaskService
     {
+
+        private sealed String TABLE_NAME = "Tasks";
+
         /// <summary>
         /// This method adds a task to storage.
         /// </summary>
         /// <param name="task">The task to add</param>
         /// <returns>If the task was added successfully</returns>
-        Boolean addTask(Task task);
+        public Task addTask(Task task)
+        {
+            return null;
+        }
 
         /// <summary>
         /// This method modifies the given task.
         /// </summary>
         /// <param name="task">The task to modify.</param>
         /// <returns>If the task was modified successfully.</returns>
-        Boolean modifyTask(Task task);
+        public Boolean modifyTask(Task task)
+        {
+            throw new NotImplementedException("Not implemented yet.");
+        }
 
         /// <summary>
         /// This method finds a task given an id.
         /// </summary>
         /// <param name="id">The id to search for</param>
         /// <returns>the task associated with that id.</returns>
-        Task getTaskById(int id);
+        public Task getTaskById(int id)
+        {
+            Task task = new Task();
+            SqlDataReader reader = read(id, TABLE_NAME);
+            while (reader.Read())
+            {
+                task.id = reader.GetInt32(reader.GetOrdinal("id"));
+                task.name = reader.GetString(reader.GetOrdinal("name"));
+            }
+            return task;
+        }
 
         /// <summary>
         /// This method gets all stored tasks.
         /// </summary>
         /// <returns>a collection of all the tasks</returns>
-        List<Task> getAllTasks();
+        public List<Task> getAllTasks()
+        {
+            throw new NotImplementedException("Not implemented yet.");
+        }
 
         /// <summary>
         /// This method removes a task from storage.
         /// </summary>
         /// <param name="task"></param>
         /// <returns></returns>
-        Boolean removeTask(Task task);
+        public Boolean removeTask(Task task)
+        {
+            throw new NotImplementedException("Not implemented yet.");
+        }
 
         /// <summary>
         /// This method gets all stored tasks, and sorts them by priority.
         /// </summary>
         /// <returns>the collection of tasks sorted by priority.</returns>
-        List<Task> getAllTasksByPriority();
+        public List<Task> getAllTasksByPriority()
+        {
+            throw new NotImplementedException("Not implemented yet.");
+        }
 
         /// <summary>
         /// This method gets all stored tasks, and sorts them by dateCreated.
         /// </summary>
         /// <returns>the collection of tasks sorted by dateCreated</returns>
-        List<Task> getAllTasksByDateCreated();
+        public List<Task> getAllTasksByDateCreated()
+        {
+            throw new NotImplementedException("Not implemented yet.");
+        }
 
         /// <summary>
         /// This method gets all stored tasks, and sorts them by dueDate.
         /// </summary>
         /// <returns>the collection of tasks sorted by dueDate</returns>
-        List<Task> getAllTasksByDueDate();
+        public List<Task> getAllTasksByDueDate()
+        {
+            throw new NotImplementedException("Not implemented yet.");
+        }
+
+        private Boolean addTask(SqlConnection conn, Object[] task)
+        {
+            return true;
+        }
     }
 }

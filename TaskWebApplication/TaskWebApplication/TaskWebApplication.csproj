@@ -45,6 +45,9 @@
     <Reference Include="MySql.Web, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Web.6.7.4\lib\net40\MySql.Web.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\..\..\..\..\Ninject\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -400,6 +403,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Business\ITaskManager.cs" />
+    <Compile Include="App_Code\Business\IUserManager.cs" />
+    <Compile Include="App_Code\Business\TaskManager.cs" />
+    <Compile Include="App_Code\Business\UserManager.cs" />
+    <Compile Include="App_Code\Comparer\DateCreatedTaskComparer.cs" />
+    <Compile Include="App_Code\Comparer\DueDateTaskComparer.cs" />
+    <Compile Include="App_Code\Comparer\PriorityTaskComparer.cs" />
+    <Compile Include="App_Code\Factory\Service\IServiceFactory.cs" />
+    <Compile Include="App_Code\Factory\Service\ServiceFactory.cs" />
+    <Compile Include="App_Code\Service\IService.cs" />
+    <Compile Include="App_Code\Service\ITaskService.cs" />
+    <Compile Include="App_Code\Service\IUserService.cs" />
+    <Compile Include="App_Code\Domain\Estimate.cs" />
+    <Compile Include="App_Code\Domain\Task.cs" />
+    <Compile Include="App_Code\Domain\User.cs" />
+    <Compile Include="App_Code\Service\TaskServiceADOImpl.cs" />
+    <Compile Include="App_Code\Service\UserServiceADOImpl.cs" />
+    <Compile Include="App_Code\Service\ServiceADOImpl.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -443,7 +464,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
+    <Folder Include="App_Code\Models\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>

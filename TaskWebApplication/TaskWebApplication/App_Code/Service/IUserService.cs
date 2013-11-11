@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using TaskApp.Domain;
 
-namespace TaskApp.Service
+namespace TaskWebApplication.Service
 {
     public interface IUserService : IService
     {

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TaskApp.Domain;
-using TaskApp.Factory.Service;
-using TaskApp.Service;
+using TaskWebApplication.Factory.Service;
+using TaskWebApplication.Service;
 
 namespace TaskApp.Business
 {
@@ -57,10 +57,10 @@ namespace TaskApp.Business
             task.dateCreated = dateCreated;
             task.dueDate = dueDate;
             Estimate estimate = new Estimate();
-            estimate.Task = task;
+            //estimate.Task = task;
             estimate.time = estimateTime;
             estimate.type = estimateType;
-            task.Estimates.Add(estimate);
+            //task.Estimates.Add(estimate);
             return taskService.addTask(task);
         }
 
@@ -91,9 +91,9 @@ namespace TaskApp.Business
             {
                 task.priority = priority;
             }
-            Estimate estimate = task.Estimates.ElementAt(0);
+            //,Estimate estimate = task.Estimates.ElementAt(0);
             
-            if (estimate != null)
+            /*if (estimate != null)
             {
                 if (estimateTime != -1)
                 {
@@ -104,7 +104,7 @@ namespace TaskApp.Business
                 {
                     estimate.type = estimateType;
                 }
-            }
+            }*/
             return taskService.modifyTask(task);
 
         }

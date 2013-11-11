@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using TaskApp.Domain;
-using TaskApp.Repository;
-using TaskApp.Service;
+using TaskWebApplication.Factory.Service;
+using TaskWebApplication.Service;
 
 
-namespace TaskApp.Factory.Service
+namespace TaskWebpApplication.Factory.Service
 {
     public class ServiceFactory : IServiceFactory
     {
@@ -27,18 +26,13 @@ namespace TaskApp.Factory.Service
             }
         }
 
-        private static DbContext context = new taskDomainDBEntities();
-        private static IRepository<Task> taskRepository = new Repository<Task>(context);
-        private static IRepository<Estimate> estimateRepository = new Repository<Estimate>(context);
-
-        private static IRepository<User> userRepository = new Repository<User>(context);
         private ITaskService getTaskService()
         {
-            return new TaskService(taskRepository, estimateRepository);
+            return null;
         }
         private IUserService getUserService()
         {
-            return new UserService(userRepository);
+            return null;
         }
 
         public IService getService(String serviceName)

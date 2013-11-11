@@ -7,10 +7,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app>
 <head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>Task Web Application - Add Task</title>
-    <link rel="stylesheet" href="Content/foundation/foundation.css">
+    <link rel="stylesheet" href="Content/foundation/foundation.css" />
 </head>
 
 <body>

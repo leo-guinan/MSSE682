@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TaskApp.Domain;
+using TaskWebApplication.Domain;
 
 namespace TaskWebApplication.Service
 {
@@ -17,7 +17,7 @@ namespace TaskWebApplication.Service
         /// </summary>
         /// <param name="task">The task to add</param>
         /// <returns>If the task was added successfully</returns>
-        Boolean addTask(Task task);
+        Task addTask(Task task);
 
         /// <summary>
         /// This method modifies the given task.

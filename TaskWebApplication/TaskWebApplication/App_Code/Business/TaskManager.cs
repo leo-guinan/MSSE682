@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TaskApp.Domain;
+using TaskWebApplication.Domain;
 using TaskWebApplication.Factory.Service;
 using TaskWebApplication.Service;
 
@@ -61,7 +61,7 @@ namespace TaskApp.Business
             estimate.time = estimateTime;
             estimate.type = estimateType;
             //task.Estimates.Add(estimate);
-            return taskService.addTask(task);
+            return taskService.addTask(task) != null;
         }
 
         public Boolean modifyTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType, int taskId)

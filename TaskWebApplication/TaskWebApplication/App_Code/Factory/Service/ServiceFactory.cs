@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TaskApp.Domain;
 using TaskWebApplication.Factory.Service;
 using TaskWebApplication.Service;
 
@@ -28,11 +27,11 @@ namespace TaskWebpApplication.Factory.Service
 
         private ITaskService getTaskService()
         {
-            return null;
+            return new TaskServiceADOImpl();
         }
         private IUserService getUserService()
         {
-            return null;
+            return new UserServiceADOImpl();
         }
 
         public IService getService(String serviceName)

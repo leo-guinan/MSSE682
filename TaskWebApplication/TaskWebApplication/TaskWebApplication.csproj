@@ -400,7 +400,9 @@
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\zepto.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Business\ITaskManager.cs" />
@@ -410,8 +412,11 @@
     <Compile Include="App_Code\Comparer\DateCreatedTaskComparer.cs" />
     <Compile Include="App_Code\Comparer\DueDateTaskComparer.cs" />
     <Compile Include="App_Code\Comparer\PriorityTaskComparer.cs" />
+    <Compile Include="App_Code\Domain\Role.cs" />
     <Compile Include="App_Code\Factory\Service\IServiceFactory.cs" />
     <Compile Include="App_Code\Factory\Service\ServiceFactory.cs" />
+    <Compile Include="App_Code\Membership\CustomMembershipProvider.cs" />
+    <Compile Include="App_Code\Membership\CustomRoleProvider.cs" />
     <Compile Include="App_Code\Service\IService.cs" />
     <Compile Include="App_Code\Service\ITaskService.cs" />
     <Compile Include="App_Code\Service\IUserService.cs" />
@@ -450,12 +455,20 @@
     <Compile Include="AddTask.aspx.designer.cs">
       <DependentUpon>AddTask.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TaskWebApp.Master.cs">
+      <DependentUpon>TaskWebApp.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskWebApp.Master.designer.cs">
+      <DependentUpon>TaskWebApp.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="TaskWebApp.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

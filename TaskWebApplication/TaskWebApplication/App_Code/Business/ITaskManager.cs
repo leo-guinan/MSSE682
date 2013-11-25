@@ -36,20 +36,20 @@ namespace TaskApp.Business
         /// <param name="estimateTime">How long the task should take.</param>
         /// <param name="estimateType">The unit of the task estimate.</param>
         /// <returns>if the task was modified correctly.</returns>
-        Boolean modifyTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType, int taskId);
+         Boolean modifyTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType, int taskId);
         
         /// <summary>
         /// This method gets all the currently available tasks.
         /// </summary>
         /// <returns>A collection of tasks.</returns>
-        IList<Task> getAllTasks();
+         List<Task> getAllTasks();
 
         /// <summary>
         /// This method gets all tasks, sorted by a given field.
         /// </summary>
         /// <param name="by">The field to sort on</param>
         /// <returns>the sorted collection of tasks</returns>
-        IList<Task> getAllTasks(String by);
+         List<Task> getAllTasks(String by);
 
 
     }

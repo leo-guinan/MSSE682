@@ -5,30 +5,32 @@ using System.Web;
 using TaskWebApplication.Domain;
 using TaskWebApplication.Factory.Service;
 using TaskWebApplication.Service;
+using TaskWebpApplication.Factory.Service;
 
 namespace TaskApp.Business
 {
-    public class TaskManager : ITaskManager
+    public class TaskManager 
     {
-        private IUserService userService;
-        private ITaskService taskService;
+        private static ITaskService taskService;
 
-        private IServiceFactory serviceFactory;
+        private static IServiceFactory serviceFactory;
 
-        public TaskManager(IServiceFactory serviceFactory)
+
+
+        static TaskManager()
         {
-            this.serviceFactory = serviceFactory;
+            TaskManager.serviceFactory = ServiceFactory.Instance;
             taskService = (ITaskService) serviceFactory.getService("taskService");
         }
 
-        public IList<Task> getAllTasks()
+        public static List<Task> getAllTasks()
         {
             return taskService.getAllTasks();
         }
 
-        public IList<Task> getAllTasks(String by)
+        public static List<Task> getAllTasks(String by)
         {
-            IList<Task> tasks;
+            List<Task> tasks;
             switch(by) 
             {
                 case "priority":
@@ -47,7 +49,7 @@ namespace TaskApp.Business
             return tasks;
         }
 
-        public Boolean addTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType)
+        public static Boolean addTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType)
         {
             Task task = new Task();
             task.name = name;
@@ -57,14 +59,13 @@ namespace TaskApp.Business
             task.dateCreated = dateCreated;
             task.dueDate = dueDate;
             Estimate estimate = new Estimate();
-            //estimate.Task = task;
             estimate.time = estimateTime;
             estimate.type = estimateType;
-            //task.Estimates.Add(estimate);
+            task.estimate = estimate;
             return taskService.addTask(task) != null;
         }
 
-        public Boolean modifyTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType, int taskId)
+        public static Boolean modifyTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType, int taskId)
         {
             Task task = taskService.getTaskById(taskId);
             if (null != name)

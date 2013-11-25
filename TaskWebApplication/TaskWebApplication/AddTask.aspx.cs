@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TaskApp.Business;
 
 namespace TaskWebApplication
 {
@@ -15,8 +16,8 @@ namespace TaskWebApplication
         }
 
         protected void AddTask_Click(object sender, EventArgs e)
-        {
-            submit.Text = "Clicked!";
+        {           
+            TaskManager.addTask(name.Text, notes.Text, description.Text, DateTime.Now, DateTime.Parse(dueDate.Text), int.Parse(priority.Text), int.Parse(time.Text), type.Text);
             Response.Redirect("ListAllTasks.aspx");
         }
     }

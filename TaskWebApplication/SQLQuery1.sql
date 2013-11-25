@@ -1,0 +1,1 @@
+ALTER TABLE Users Alter COLUMN email varchar(MAX) NOT NULL;

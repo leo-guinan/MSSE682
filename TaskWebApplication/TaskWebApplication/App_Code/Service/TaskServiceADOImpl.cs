@@ -14,6 +14,7 @@ namespace TaskWebApplication.Service
         private readonly String TASK_TABLE_NAME = "Tasks";
         private readonly String ESTIMATE_TABLE_NAME = "Estimates";
         private readonly String KEY_COLUMN = "taskId";
+       
 
         /// <summary>
         /// This method adds a task to storage.
@@ -22,10 +23,11 @@ namespace TaskWebApplication.Service
         /// <returns>If the task was added successfully</returns>
         public Task addTask(Task task)
         {
-            if (create(TASK_TABLE_NAME, buildTaskDictionary(task)) == 1 && create(ESTIMATE_TABLE_NAME, buildEstimateDictionary(task)) == 1) {
-                return task;
-            }
-            return null;
+            int taskId = create(TASK_TABLE_NAME, buildTaskDictionary(task));
+            task.id = taskId;
+            int estimateId = create(ESTIMATE_TABLE_NAME, buildEstimateDictionary(task));
+            task.estimate.id = estimateId;
+            return taskId >= 0 && estimateId >= 0 ? task : null;              
         }
 
         /// <summary>
@@ -78,7 +80,29 @@ namespace TaskWebApplication.Service
         /// <returns>a collection of all the tasks</returns>
         public List<Task> getAllTasks()
         {
-            throw new NotImplementedException("Not implemented yet.");
+            List<Task> tasks = new List<Task>();
+            DataTable table = readAll(TASK_TABLE_NAME);
+            foreach (DataRow row in table.Rows)
+            {
+                Task task = new Task();
+                task.id = int.Parse(row["taskId"].ToString());
+                task.name = row["name"].ToString();
+                task.notes = row["notes"].ToString();
+                task.description = row["description"].ToString();
+                task.priority = int.Parse(row["priority"].ToString());
+                task.dueDate = (DateTime)row["dueDate"];
+                task.dateCreated = (DateTime)row["dateCreated"];
+                DataTable estimateTable = read(ESTIMATE_TABLE_NAME, KEY_COLUMN, task.id.ToString());
+                Estimate estimate = new Estimate();
+                foreach (DataRow estimateRow in estimateTable.Rows)
+                {
+                    estimate.time = int.Parse(estimateRow["time"].ToString());
+                    estimate.type = estimateRow["type"].ToString();
+                }
+                task.estimate = estimate;
+                tasks.Add(task);
+            }          
+            return tasks;
         }
 
         /// <summary>
@@ -121,7 +145,6 @@ namespace TaskWebApplication.Service
         private Dictionary<String, Object> buildTaskDictionary(Task task)
         {
             Dictionary<String, Object> columnsToValues = new Dictionary<String, Object>();
-            columnsToValues.Add("taskId", task.id);
             columnsToValues.Add("name", task.name);
             columnsToValues.Add("description", task.description);
             columnsToValues.Add("notes", task.notes);
@@ -139,5 +162,7 @@ namespace TaskWebApplication.Service
             columnsToValues.Add("taskId", task.id);
             return columnsToValues;
         }
+
+        
     }
 }

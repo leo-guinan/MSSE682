@@ -1,97 +1,42 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListAllTasks.aspx.cs" Inherits="TaskWebApplication.ListAllTasks" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListAllTasks.aspx.cs" Inherits="TaskWebApplication.ListAllTasks" MasterPageFile="~/TaskWebApp.Master" %>
 
-<%@ Register TagPrefix="uc" TagName="Menu"
-    Src="~/MenuControl.ascx" %>
-<!DOCTYPE html>
+<asp:Content ID="listAllTasksContent" ContentPlaceHolderID="ContentBody" runat="Server">
 
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
-<head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Task Web Application - View All Tasks</title>
-    <link rel="stylesheet" href="Content/foundation/foundation.css">
-</head>
-<body>
-    <uc:Menu runat="server" ID="menu" />
+
     <div class="row">
-        <table id="tasks" data-direction="@Model.direction" data-sort="@Model.sort">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Notes</th>
-                    <th>Priority</th>
-                    <th>Date Created</th>
-                    <th>Due Date</th>
-                    <th>Estimate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>@task.name</td>
-                    <td>@task.description</td>
-                    <td>@task.notes</td>
-                    <td>@task.priority</td>
-                    <td>@task.dateCreated</td>
-                    <td>@task.dueDate</td>
-                    <td>@task.time @task.type</td>
-                </tr>
-                <tr>
-                    <td>@task.name</td>
-                    <td>@task.description</td>
-                    <td>@task.notes</td>
-                    <td>@task.priority</td>
-                    <td>@task.dateCreated</td>
-                    <td>@task.dueDate</td>
-                    <td>@task.time @task.type</td>
-                </tr>
-                <tr>
-                    <td>@task.name</td>
-                    <td>@task.description</td>
-                    <td>@task.notes</td>
-                    <td>@task.priority</td>
-                    <td>@task.dateCreated</td>
-                    <td>@task.dueDate</td>
-                    <td>@task.time @task.type</td>
-                </tr>
-                <tr>
-                    <td>@task.name</td>
-                    <td>@task.description</td>
-                    <td>@task.notes</td>
-                    <td>@task.priority</td>
-                    <td>@task.dateCreated</td>
-                    <td>@task.dueDate</td>
-                    <td>@task.time @task.type</td>
-                </tr>
-                <tr>
-                    <td>@task.name</td>
-                    <td>@task.description</td>
-                    <td>@task.notes</td>
-                    <td>@task.priority</td>
-                    <td>@task.dateCreated</td>
-                    <td>@task.dueDate</td>
-                    <td>@task.time @task.type</td>
-                </tr>
-                <tr>
-                    <td>@task.name</td>
-                    <td>@task.description</td>
-                    <td>@task.notes</td>
-                    <td>@task.priority</td>
-                    <td>@task.dateCreated</td>
-                    <td>@task.dueDate</td>
-                    <td>@task.time @task.type</td>
-                </tr>
-                <tr>
-                    <td>@task.name</td>
-                    <td>@task.description</td>
-                    <td>@task.notes</td>
-                    <td>@task.priority</td>
-                    <td>@task.dateCreated</td>
-                    <td>@task.dueDate</td>
-                    <td>@task.time @task.type</td>
-                </tr>
-            </tbody>
-        </table>
+
+
+        <asp:ListView runat="server" ID="listAllTasks">
+            <LayoutTemplate>
+                <table id="tasks" data-direction="@Model.direction" data-sort="@Model.sort">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Notes</th>
+                            <th>Priority</th>
+                            <th>Date Created</th>
+                            <th>Due Date</th>
+                            <th>Estimate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr runat="server" id="itemPlaceholder"></tr>
+                    </tbody>
+                </table>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <tr runat="server">
+                    <td runat="server"><%#Eval("name")%></td>
+                    <td runat="server"><%#Eval("description")%></td>
+                    <td runat="server"><%#Eval("notes")%></td>
+                    <td runat="server"><%#Eval("priority")%></td>
+                    <td runat="server"><%#Eval("dateCreated")%></td>
+                    <td runat="server"><%#Eval("dueDate")%></td>
+                    <td runat="server"><%#Eval("estimate.time")%> <%#Eval("estimate.type")%></td>
+                </tr>                            
+            </ItemTemplate>
+        </asp:ListView>
+
     </div>
-</body>
-</html>
+</asp:Content>

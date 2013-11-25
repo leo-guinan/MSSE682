@@ -57,22 +57,29 @@ namespace TaskWebApplication.Service
             Dictionary<String, Object> columnsToValues = (Dictionary<String, Object>)args[1];
             String columns = String.Join(", ", columnsToValues.Keys);
             String[] values = new String[columnsToValues.Count];
-
             for (int i = 0; i < columnsToValues.Count; ++ i)
             {
                 values[i] = "@" + columnsToValues.Keys.ElementAt(i);
             }
 
-            string SqlInsert = "insert into " + tableName + " (" + columns + ") values (" 
-                + String.Join(",", values) + ")";
+            string SqlInsert = "insert into " + tableName + " (" + columns + ") values ("
+                + String.Join(",", values) + ");SELECT CAST(scope_identity() AS int)";
             SqlCommand cmd = new SqlCommand(SqlInsert, conn);
             foreach (String key in columnsToValues.Keys)
             {
                 Object value = columnsToValues[key] == null ? DBNull.Value : columnsToValues[key];
                 cmd.Parameters.AddWithValue("@" + key, value);
             }
-            int numberOfRows = cmd.ExecuteNonQuery();
-            return numberOfRows;
+            int id = -1;
+            try
+            {
+                id = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return id;
         }
 
         private DataTable read(SqlConnection conn, Object[] args)
@@ -90,6 +97,18 @@ namespace TaskWebApplication.Service
             return dataTable;
         }
 
+        private DataTable readAll(SqlConnection conn, Object[] args)
+        {
+            String tableName = args[0].ToString();
+            SqlDataReader reader = null;
+            string SqlQuery = "select * from " + tableName;
+            SqlCommand cmd = new SqlCommand(SqlQuery, conn);
+            reader = cmd.ExecuteReader();
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
+        }
+
         protected DataTable read(String tableName, String keyColumn, String keyValue)
         {
             Object[] args = new Object[3];
@@ -97,6 +116,13 @@ namespace TaskWebApplication.Service
             args[1] = keyColumn;
             args[2] = keyValue;
             return (DataTable) executeCommand(read, args);
+        }
+
+        protected DataTable readAll(String tableName)
+        {
+            Object[] args = new Object[3];
+            args[0] = tableName;
+            return (DataTable)executeCommand(readAll, args);
         }
 
         protected int update(String tableName, Dictionary<String, Object> columnsToValues, String keyColumn, String keyValue)
@@ -114,16 +140,13 @@ namespace TaskWebApplication.Service
             String tableName = args[0].ToString();
             Dictionary<String, Object> columnsToValues = (Dictionary<String, Object>)args[1];
             String keyColumn = args[2].ToString();
-            String keyValue = args[3].ToString();
-            
+            String keyValue = args[3].ToString();            
             String[] columns = new String[columnsToValues.Count];
-
             for(int i =0; i < columns.Length; i++)
             {
                 String key = columnsToValues.ElementAt(i).Key;
                 columns[i] = key + "=@" + key; 
             }
-
             String update = "UPDATE " + tableName + " SET " + String.Join(", ", columns) + " WHERE " + keyColumn + "=" + "@keyValue;";
             SqlCommand cmd = new SqlCommand(update, conn);            
             cmd.Parameters.AddWithValue("@keyValue", keyValue); 
@@ -132,7 +155,6 @@ namespace TaskWebApplication.Service
                 Object value = columnsToValues[key] == null ? DBNull.Value : columnsToValues[key];
                 cmd.Parameters.AddWithValue("@" + key, value);
             }
-
             int numberOfRows = cmd.ExecuteNonQuery();
             return numberOfRows;
         }

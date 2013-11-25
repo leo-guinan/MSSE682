@@ -7,6 +7,7 @@ namespace TaskWebApplication.Domain
 {
     public partial class Estimate
     {
+        public int id { get; set; }
         public int time { get; set; }
         public string type { get; set; }
     

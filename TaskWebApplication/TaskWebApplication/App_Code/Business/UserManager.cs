@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TaskApp.Domain;
+using TaskWebApplication.Domain;
 using TaskWebApplication.Factory.Service;
 using TaskWebApplication.Service;
 
@@ -23,7 +23,7 @@ namespace TaskApp.Business
 
         }
 
-        public Boolean addUser(String username, String password)
+        public User addUser(String username, String password)
         {
             return userService.addUser(new User(username, password));
         }

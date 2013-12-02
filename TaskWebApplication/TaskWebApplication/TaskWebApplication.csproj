@@ -412,20 +412,16 @@
     <Compile Include="App_Code\Comparer\DateCreatedTaskComparer.cs" />
     <Compile Include="App_Code\Comparer\DueDateTaskComparer.cs" />
     <Compile Include="App_Code\Comparer\PriorityTaskComparer.cs" />
-    <Compile Include="App_Code\Domain\Role.cs" />
     <Compile Include="App_Code\Factory\Service\IServiceFactory.cs" />
     <Compile Include="App_Code\Factory\Service\ServiceFactory.cs" />
     <Compile Include="App_Code\Membership\CustomMembershipProvider.cs" />
     <Compile Include="App_Code\Membership\CustomRoleProvider.cs" />
-    <Compile Include="App_Code\Service\IService.cs" />
+    <Compile Include="App_Code\Service\IAuthenticationService.cs" />
     <Compile Include="App_Code\Service\ITaskService.cs" />
-    <Compile Include="App_Code\Service\IUserService.cs" />
     <Compile Include="App_Code\Domain\Estimate.cs" />
     <Compile Include="App_Code\Domain\Task.cs" />
-    <Compile Include="App_Code\Domain\User.cs" />
     <Compile Include="App_Code\Service\TaskServiceADOImpl.cs" />
-    <Compile Include="App_Code\Service\UserServiceADOImpl.cs" />
-    <Compile Include="App_Code\Service\ServiceADOImpl.cs" />
+    <Compile Include="App_Code\Service\UserServiceAuthenticationServerImpl.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -479,6 +475,12 @@
   <ItemGroup>
     <Folder Include="App_Code\Models\" />
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharedLibraries\SharedLibraries.csproj">
+      <Project>{43ecacda-2298-4419-8dfd-a354d057e067}</Project>
+      <Name>SharedLibraries</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

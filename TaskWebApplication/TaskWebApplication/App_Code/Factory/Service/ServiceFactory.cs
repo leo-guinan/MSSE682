@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedLibraries.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace TaskWebpApplication.Factory.Service
 {
     public class ServiceFactory : IServiceFactory
     {
+        private readonly String CONNECTION_STRING = "taskManagement";
         protected static readonly ServiceFactory instance = new ServiceFactory();
 
         public ServiceFactory()
@@ -25,13 +27,18 @@ namespace TaskWebpApplication.Factory.Service
             }
         }
 
+        private IAuthenticationService getAuthenticationService()
+        {
+            return new UserServiceAuthenticationServerImpl();
+        }
+
         private ITaskService getTaskService()
         {
-            return new TaskServiceADOImpl();
+            return new TaskServiceADOImpl(CONNECTION_STRING);
         }
         private IUserService getUserService()
         {
-            return new UserServiceADOImpl();
+            return new UserServiceADOImpl(CONNECTION_STRING);
         }
 
         public IService getService(String serviceName)
@@ -43,7 +50,11 @@ namespace TaskWebpApplication.Factory.Service
             else if ("userService" == serviceName)
             {
                 return getUserService();
-            } 
+            }
+            else if ("authenticationService" == serviceName)
+            {
+                return getAuthenticationService();
+            }
             throw new NotSupportedException("Requested service not supported");
 
         }

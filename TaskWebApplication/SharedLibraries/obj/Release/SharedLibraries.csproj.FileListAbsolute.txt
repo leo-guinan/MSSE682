@@ -1,0 +1,4 @@
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\bin\Release\SharedLibraries.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\bin\Release\SharedLibraries.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\obj\Release\SharedLibraries.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\obj\Release\SharedLibraries.pdb

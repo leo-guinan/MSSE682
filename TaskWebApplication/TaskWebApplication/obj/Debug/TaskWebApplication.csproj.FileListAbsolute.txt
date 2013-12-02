@@ -3,7 +3,10 @@ C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\MySql.Data.dll
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\MySql.Web.dll
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\Ninject.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\SharedLibraries.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\SharedLibraries.pdb
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\Ninject.pdb
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\bin\Ninject.xml
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\obj\Debug\TaskWebApplication.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\obj\Debug\TaskWebApplication.dll
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\TaskWebApplication\obj\Debug\TaskWebApplication.pdb

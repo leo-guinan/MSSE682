@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedLibraries.Service;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,7 +15,12 @@ namespace TaskWebApplication.Service
         private readonly String TASK_TABLE_NAME = "Tasks";
         private readonly String ESTIMATE_TABLE_NAME = "Estimates";
         private readonly String KEY_COLUMN = "taskId";
-       
+
+        public TaskServiceADOImpl(String connection)
+            : base(connection)
+        {
+
+        }
 
         /// <summary>
         /// This method adds a task to storage.
@@ -27,7 +33,7 @@ namespace TaskWebApplication.Service
             task.id = taskId;
             int estimateId = create(ESTIMATE_TABLE_NAME, buildEstimateDictionary(task));
             task.estimate.id = estimateId;
-            return taskId >= 0 && estimateId >= 0 ? task : null;              
+            return taskId >= 0 && estimateId >= 0 ? task : null;
         }
 
         /// <summary>
@@ -37,12 +43,13 @@ namespace TaskWebApplication.Service
         /// <returns>If the task was modified successfully.</returns>
         public Boolean modifyTask(Task task)
         {
-            if (update(TASK_TABLE_NAME, buildTaskDictionary(task), KEY_COLUMN, task.id.ToString()) > 0 && update(ESTIMATE_TABLE_NAME, buildEstimateDictionary(task), KEY_COLUMN, task.id.ToString()) > 0)  {
+            if (update(TASK_TABLE_NAME, buildTaskDictionary(task), KEY_COLUMN, task.id.ToString()) > 0 && update(ESTIMATE_TABLE_NAME, buildEstimateDictionary(task), KEY_COLUMN, task.id.ToString()) > 0)
+            {
                 return true;
             }
-            return false;            
+            return false;
         }
-        
+
         /// <summary>
         /// This method finds a task given an id.
         /// </summary>
@@ -52,23 +59,23 @@ namespace TaskWebApplication.Service
         {
             Task task = new Task();
             DataTable table = read(TASK_TABLE_NAME, KEY_COLUMN, id.ToString());
-            foreach(DataRow row in table.Rows)
-            {                
-                 task.id = int.Parse(row["taskId"].ToString());
-                 task.name = row["name"].ToString();
-                 task.notes = row["notes"].ToString();
-                 task.description = row["description"].ToString();
-                 task.priority = int.Parse(row["priority"].ToString());
-                 task.dueDate = (DateTime) row["dueDate"];
-                 task.dateCreated = (DateTime) row["dateCreated"];            
+            foreach (DataRow row in table.Rows)
+            {
+                task.id = int.Parse(row["taskId"].ToString());
+                task.name = row["name"].ToString();
+                task.notes = row["notes"].ToString();
+                task.description = row["description"].ToString();
+                task.priority = int.Parse(row["priority"].ToString());
+                task.dueDate = (DateTime)row["dueDate"];
+                task.dateCreated = (DateTime)row["dateCreated"];
             }
 
             DataTable estimateTable = read(ESTIMATE_TABLE_NAME, KEY_COLUMN, task.id.ToString());
             Estimate estimate = new Estimate();
-            foreach(DataRow row in estimateTable.Rows) 
+            foreach (DataRow row in estimateTable.Rows)
             {
                 estimate.time = int.Parse(row["time"].ToString());
-                estimate.type = row["type"].ToString();                
+                estimate.type = row["type"].ToString();
             }
             task.estimate = estimate;
             return task;
@@ -101,7 +108,7 @@ namespace TaskWebApplication.Service
                 }
                 task.estimate = estimate;
                 tasks.Add(task);
-            }          
+            }
             return tasks;
         }
 
@@ -112,7 +119,7 @@ namespace TaskWebApplication.Service
         /// <returns></returns>
         public Boolean removeTask(Task task)
         {
-            return  delete(ESTIMATE_TABLE_NAME, KEY_COLUMN, task.id.ToString()) > 0 && delete(TASK_TABLE_NAME, KEY_COLUMN, task.id.ToString()) > 0;
+            return delete(ESTIMATE_TABLE_NAME, KEY_COLUMN, task.id.ToString()) > 0 && delete(TASK_TABLE_NAME, KEY_COLUMN, task.id.ToString()) > 0;
         }
 
         /// <summary>
@@ -140,7 +147,7 @@ namespace TaskWebApplication.Service
         public List<Task> getAllTasksByDueDate()
         {
             throw new NotImplementedException("Not implemented yet.");
-        }       
+        }
 
         private Dictionary<String, Object> buildTaskDictionary(Task task)
         {
@@ -163,6 +170,6 @@ namespace TaskWebApplication.Service
             return columnsToValues;
         }
 
-        
+
     }
 }

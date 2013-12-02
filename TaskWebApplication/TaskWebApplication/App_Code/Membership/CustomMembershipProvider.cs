@@ -9,9 +9,11 @@ using System.Text;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Security;
-using TaskWebApplication.Domain;
-using TaskWebApplication.Service;
+using SharedLibraries.Domain;
+using SharedLibraries.Service;
 using TaskWebpApplication.Factory.Service;
+using TaskApp.Business;
+using TaskWebApplication.Service;
 
 namespace TaskWebApplication.Membership
 {
@@ -34,6 +36,7 @@ namespace TaskWebApplication.Membership
         private MachineKeySection machineKey; //Used when determining encryption key values.
         private IUserService userService;
         private ServiceFactory serviceFactory = ServiceFactory.Instance;
+        private IAuthenticationService authenticationService;
 
         public override string ApplicationName
         {
@@ -114,12 +117,9 @@ namespace TaskWebApplication.Membership
 
         public override bool ValidateUser(string username, string password)
         {
-            User user = userService.getUserByUsername(username);
-            if (user != null && password.Equals(user.password))
-            {
-                return true;
-            }
-            return false;
+            User user = new User(username, password);
+            return authenticationService.authenticateUser(user);
+            
         }
 
         public override MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords)
@@ -186,6 +186,12 @@ namespace TaskWebApplication.Membership
         }
 
 
+        public MembershipUser CreateUser(String username, String password, String email)
+        {
+            MembershipCreateStatus status;
+            return CreateUser(username, password, email, "", "", false, null,  out status);
+        }
+
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
         {
             ValidatePasswordEventArgs args = new ValidatePasswordEventArgs(username, password, true);
@@ -239,6 +245,7 @@ namespace TaskWebApplication.Membership
         public override void Initialize(string name, NameValueCollection config)
         {
             userService = (IUserService)serviceFactory.getService("userService");
+            authenticationService = (IAuthenticationService)serviceFactory.getService("authenticationService");
             if (config == null)
             {
                 string configPath = "~/web.config";

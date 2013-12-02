@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TaskWebApplication.Domain;
+using SharedLibraries.Domain;
 using TaskWebApplication.Factory.Service;
+using SharedLibraries.Service;
 using TaskWebApplication.Service;
 
 
@@ -14,12 +15,14 @@ namespace TaskApp.Business
     {
         private IUserService userService;
         private IServiceFactory serviceFactory;
+        private IAuthenticationService authenticationService;
 
         [Inject]
         public UserManager(IServiceFactory serviceFactory)
         {
             this.serviceFactory = serviceFactory;
             userService = (IUserService)serviceFactory.getService("userService");
+            authenticationService = (IAuthenticationService)serviceFactory.getService("authenticationService");
 
         }
 
@@ -30,7 +33,7 @@ namespace TaskApp.Business
 
         public Boolean login(String username, String password)
         {
-            return userService.authenticateUser(new User(username, password));
+            return authenticationService.authenticateUser(new User(username, password));
         }
     }
 }

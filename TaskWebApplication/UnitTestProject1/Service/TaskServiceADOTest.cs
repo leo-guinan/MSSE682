@@ -30,7 +30,8 @@ namespace UnitTestProject1.Service
         [TestMethod]
         public void testCRUDCycle()
         {
-            Assert.AreEqual(task1,taskService.addTask(task1));
+            Task added = taskService.addTask(task1);
+            Assert.AreEqual(task1.name,added.name);
             task1.name = "newTaskName";
             Assert.IsTrue(taskService.modifyTask(task1));
             Task retrievedTask = taskService.getTaskById(task1.id);

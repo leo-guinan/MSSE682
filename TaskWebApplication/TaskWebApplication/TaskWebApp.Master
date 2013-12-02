@@ -25,6 +25,22 @@
                     </div>
                     <a class="close-reveal-modal">&#215;</a>
                 </div>
+                <div id="registerModal" class="reveal-modal">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label for="registerUser">User Name:</label>
+                            <asp:TextBox ID="registerUser" runat="server"></asp:TextBox>
+                            <label for="registerEmail">Email:</label>
+                            <asp:TextBox ID="registerEmail" runat="server"></asp:TextBox>
+                            <label for="registerPassword">Password:</label>
+                            <asp:TextBox ID="registerPassword" runat="server" TextMode="Password"></asp:TextBox>
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <asp:TextBox ID="confirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:Button ID="registerSubmit" OnClick="Register_Click" runat="server" Text="Register" />
+                        </div>
+                    </div>
+                    <a class="close-reveal-modal">&#215;</a>
+                </div>
                 <div id="successModal" class="reveal-modal">
                     <span>Login Successful!</span>
                     <a class="close-reveal-modal">&#215;</a>
@@ -33,6 +49,17 @@
                 <div id="failureModal" class="reveal-modal">
                     <span>Login failed. Please try again.</span>
                     <input type="button" value="Login" data-reveal-id="loginModal" />
+                    <a class="close-reveal-modal">&#215;</a>
+
+                </div>
+
+                <div id="registerSuccessModal" class="reveal-modal">
+                    <span>Registration Successful!</span>
+                    <a class="close-reveal-modal">&#215;</a>
+                </div>
+                <div id="registerFailureModal" class="reveal-modal">
+                    <span>Registration failed. Please try again.</span>
+                    <input type="button" value="Regsiter" data-reveal-id="registerModal" />
                     <a class="close-reveal-modal">&#215;</a>
 
                 </div>
@@ -61,6 +88,7 @@
                                 </ul>
                             </li>
                             <li class="divider"></li>
+                            <li><a href="#" data-reveal-id="registerModal">Register</a></li>
                             <li class="divider hide-for-small"></li>
                             <li><a href="#" data-reveal-id="loginModal" ng-model="login">{{login}}</a></li>
                             <li class="divider"></li>
@@ -90,6 +118,10 @@
             loginUser = function () {
                 $("#login").data("currentUser") ? $('#successModal').foundation('reveal', 'open') : $('#failureModal').foundation('reveal', 'open');
             };
+
+            registerUser = function () {
+                $("#login").data("currentUser") ? $('#registerSuccessModal').foundation('reveal', 'open') : $('#registerFailureModal').foundation('reveal', 'open');
+            }
         </script>
     </form>
 

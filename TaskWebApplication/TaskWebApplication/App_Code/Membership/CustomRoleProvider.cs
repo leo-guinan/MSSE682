@@ -4,8 +4,8 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using TaskWebApplication.Domain;
-using TaskWebApplication.Service;
+using SharedLibraries.Domain;
+using SharedLibraries.Service;
 using TaskWebpApplication.Factory.Service;
 
 namespace TaskWebApplication.Membership

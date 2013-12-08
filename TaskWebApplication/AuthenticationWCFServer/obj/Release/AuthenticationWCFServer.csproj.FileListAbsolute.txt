@@ -1,0 +1,10 @@
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\bin\Release\ConsoleApplication1.exe.config
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\bin\Release\ConsoleApplication1.exe
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\bin\Release\ConsoleApplication1.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\bin\Release\AuthenticationServiceLibrary.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\bin\Release\SharedLibraries.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\bin\Release\AuthenticationServiceLibrary.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\bin\Release\SharedLibraries.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\obj\Release\AuthenticationWCFServer.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\obj\Release\ConsoleApplication1.exe
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\ConsoleApplication1\obj\Release\ConsoleApplication1.pdb

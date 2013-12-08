@@ -48,6 +48,8 @@
     <Reference Include="Ninject">
       <HintPath>..\..\..\..\..\..\..\Ninject\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -400,6 +402,13 @@
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\zepto.js" />
+    <Content Include="Service References\AuthenticationService\item.disco" />
+    <Content Include="Service References\AuthenticationService\configuration91.svcinfo" />
+    <Content Include="Service References\AuthenticationService\configuration.svcinfo" />
+    <Content Include="Service References\AuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -422,6 +431,7 @@
     <Compile Include="App_Code\Domain\Task.cs" />
     <Compile Include="App_Code\Service\TaskServiceADOImpl.cs" />
     <Compile Include="App_Code\Service\UserServiceAuthenticationServerImpl.cs" />
+    <Compile Include="App_Code\Service\UserServiceAuthenticationWCFImpl.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -451,6 +461,11 @@
     <Compile Include="AddTask.aspx.designer.cs">
       <DependentUpon>AddTask.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\AuthenticationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="TaskWebApp.Master.cs">
       <DependentUpon>TaskWebApp.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -465,6 +480,22 @@
     </Content>
     <Content Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="TaskWebApp.Master" />
+    <Content Include="Service References\AuthenticationService\AuthenticationService.wsdl" />
+    <None Include="Service References\AuthenticationService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthenticationService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthenticationService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthenticationService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\AuthenticationService\TaskWebApplication.AuthenticationService.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -481,6 +512,12 @@
       <Project>{43ecacda-2298-4419-8dfd-a354d057e067}</Project>
       <Name>SharedLibraries</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AuthenticationService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

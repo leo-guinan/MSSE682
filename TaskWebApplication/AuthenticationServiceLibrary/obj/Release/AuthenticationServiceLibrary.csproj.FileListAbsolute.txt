@@ -1,0 +1,8 @@
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\bin\Release\AuthenticationServiceLibrary.dll.config
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\bin\Release\AuthenticationServiceLibrary.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\bin\Release\AuthenticationServiceLibrary.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\obj\Release\AuthenticationServiceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\obj\Release\AuthenticationServiceLibrary.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\obj\Release\AuthenticationServiceLibrary.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\bin\Release\SharedLibraries.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationServiceLibrary\bin\Release\SharedLibraries.pdb

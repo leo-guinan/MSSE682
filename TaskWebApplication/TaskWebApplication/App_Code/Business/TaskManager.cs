@@ -92,9 +92,9 @@ namespace TaskApp.Business
             {
                 task.priority = priority;
             }
-            //,Estimate estimate = task.Estimates.ElementAt(0);
+            Estimate estimate = task.estimate;
             
-            /*if (estimate != null)
+            if (estimate != null)
             {
                 if (estimateTime != -1)
                 {
@@ -105,12 +105,15 @@ namespace TaskApp.Business
                 {
                     estimate.type = estimateType;
                 }
-            }*/
+            }
             return taskService.modifyTask(task);
 
         }
 
-
+        public static void DeleteTask(int taskId)
+        {
+            taskService.removeTask(taskService.getTaskById(taskId));
+        }
 
 
     }

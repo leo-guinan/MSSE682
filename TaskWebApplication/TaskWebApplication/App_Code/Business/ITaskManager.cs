@@ -51,6 +51,11 @@ namespace TaskApp.Business
         /// <returns>the sorted collection of tasks</returns>
          List<Task> getAllTasks(String by);
 
+        /// <summary>
+        /// Delete a task with the given ID.
+        /// </summary>
+        /// <param name="taskId"></param>
+         void DeleteTask(int taskId);
 
     }
 }

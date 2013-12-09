@@ -1,0 +1,10 @@
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\bin\Debug\ConsoleApplication1.exe
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\bin\Debug\AuthenticationServiceLibrary.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\bin\Debug\SharedLibraries.dll
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\bin\Debug\AuthenticationServiceLibrary.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\bin\Debug\SharedLibraries.pdb
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\obj\Debug\AuthenticationWCFServer.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\obj\Debug\ConsoleApplication1.exe
+C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\AuthenticationWCFServer\obj\Debug\ConsoleApplication1.pdb

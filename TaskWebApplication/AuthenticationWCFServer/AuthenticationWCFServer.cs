@@ -8,7 +8,7 @@ using System.ServiceModel;
 
 namespace ConsoleApplication1
 {
-    class Program
+    class AuthenticationWCFServer
     {
         static void Main(string[] args)
         {

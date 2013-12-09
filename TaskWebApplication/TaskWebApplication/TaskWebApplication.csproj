@@ -75,8 +75,6 @@
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Index.aspx" />
     <Content Include="ListAllTasks.aspx" />
-    <Content Include="ListAllTasks.html" />
-    <Content Include="MenuControl.ascx" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
     <Content Include="Scripts\angular-bootstrap.js" />
@@ -445,13 +443,6 @@
     </Compile>
     <Compile Include="ListAllTasks.aspx.designer.cs">
       <DependentUpon>ListAllTasks.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MenuControl.ascx.cs">
-      <DependentUpon>MenuControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MenuControl.ascx.designer.cs">
-      <DependentUpon>MenuControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AddTask.aspx.cs">

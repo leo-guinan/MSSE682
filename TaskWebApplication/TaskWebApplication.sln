@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer", "Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServiceLibrary", "AuthenticationServiceLibrary\AuthenticationServiceLibrary.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationWCFServer", "ConsoleApplication1\AuthenticationWCFServer.csproj", "{07836BE9-879F-47B2-83BD-D4B95D61D78A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationWCFServer", "AuthenticationWCFServer\AuthenticationWCFServer.csproj", "{07836BE9-879F-47B2-83BD-D4B95D61D78A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

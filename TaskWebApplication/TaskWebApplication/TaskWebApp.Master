@@ -80,9 +80,7 @@
                             <li class="divider"></li>
                             <li class="has-dropdown"><a href="#">Tasks</a>
                                 <ul class="dropdown">
-                                    <li><a href="AddTask.aspx">Add Task</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Edit Tasks</a></li>
+                                    <li><a href="AddTask.aspx">Add Task</a></li>                                
                                     <li class="divider"></li>
                                     <li><a href="ListAllTasks.aspx">View All Tasks</a></li>
                                 </ul>

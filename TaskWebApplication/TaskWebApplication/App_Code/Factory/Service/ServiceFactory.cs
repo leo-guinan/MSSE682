@@ -29,7 +29,7 @@ namespace TaskWebpApplication.Factory.Service
 
         private IAuthenticationService getAuthenticationService()
         {
-            return new UserServiceAuthenticationWCFImpl();
+            return new UserServiceAuthenticationWebApiImpl();
         }
 
         private ITaskService getTaskService()

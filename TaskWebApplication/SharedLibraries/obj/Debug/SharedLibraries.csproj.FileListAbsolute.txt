@@ -1,5 +1,4 @@
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\bin\Debug\SharedLibraries.dll
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\bin\Debug\SharedLibraries.pdb
-C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\obj\Debug\SharedLibraries.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\obj\Debug\SharedLibraries.dll
 C:\Users\Leo\Documents\GitHub\MSSE682\TaskWebApplication\SharedLibraries\obj\Debug\SharedLibraries.pdb

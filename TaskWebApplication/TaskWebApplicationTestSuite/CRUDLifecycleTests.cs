@@ -9,7 +9,7 @@ namespace TaskWebApplicationTestSuite
     public class TaskServiceADOTest
     {
           
-        ITaskService taskService = new TaskServiceADOImpl();
+        ITaskService taskService = new TaskServiceADOImpl("");
  
         Task task1;
         Estimate  estimate;

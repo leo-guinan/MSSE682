@@ -13,15 +13,10 @@ namespace AuthenticationWebAPIService.Controllers
     {
         IUserService userService = new UserServiceADOImpl("taskManagement");
 
+        
         public Boolean PostAuthenticateUser(User user)
         {
             return userService.authenticateUser(user);
-        }
-
-        public Boolean GetAuthenticateUser(String username, String password)
-        {
-            User user = new User(username, password);
-            return userService.authenticateUser(user);
-        }
+        }      
     }
 }
